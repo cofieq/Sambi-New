@@ -30,7 +30,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ ingredients, totalSales })
                 stat.color === 'orange' ? 'bg-orange-50 text-orange-600' : 
                 'bg-blue-50 text-blue-600'
               }`}>
-                <stat.icon size={22} md:size={26} strokeWidth={2.5} />
+                {/* Fixed: Removed md:size and used className for responsive sizing */}
+                <stat.icon size={22} className="md:w-[26px] md:h-[26px]" strokeWidth={2.5} />
               </div>
               <div className="text-right">
                 <p className="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-widest">{stat.label}</p>
@@ -58,7 +59,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ ingredients, totalSales })
           <div className="px-6 md:px-8 py-5 md:py-6 border-b border-slate-50 flex items-center justify-between bg-slate-50/50">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 md:w-10 md:h-10 bg-red-100 rounded-lg md:rounded-xl flex items-center justify-center text-red-600">
-                <AlertTriangle size={18} md:size={20} />
+                {/* Fixed: Removed md:size and used className for responsive sizing */}
+                <AlertTriangle size={18} className="md:w-5 md:h-5" />
               </div>
               <div>
                 <h3 className="font-bold text-slate-800 text-sm md:text-base">Prioritas Restock</h3>
@@ -70,7 +72,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ ingredients, totalSales })
             {[...outOfStock, ...lowStock].length === 0 ? (
               <div className="py-12 md:py-20 text-center flex flex-col items-center gap-4">
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center">
-                  <Package size={24} md:size={32} />
+                  {/* Fixed: Removed md:size and used className for responsive sizing */}
+                  <Package size={24} className="md:w-8 md:h-8" />
                 </div>
                 <p className="text-slate-400 text-sm font-medium italic">Semua stok aman dan terkendali.</p>
               </div>
@@ -80,7 +83,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ ingredients, totalSales })
                   <div key={item.id} className="p-4 bg-slate-50/50 hover:bg-white border border-transparent hover:border-slate-100 rounded-2xl md:rounded-[2rem] transition-all flex items-center justify-between group">
                     <div className="flex items-center gap-4">
                       <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center border shadow-sm font-black text-[10px] md:text-xs shrink-0 ${item.isBatch ? 'bg-orange-50 text-orange-500 border-orange-100' : (item.quantity <= 0 ? 'bg-red-50 text-red-600 border-red-100' : 'bg-white text-slate-400 border-slate-100')}`}>
-                        {item.isBatch ? <Boxes size={18} md:size={20} /> : item.name.charAt(0)}
+                        {/* Fixed: Removed md:size and used className for responsive sizing */}
+                        {item.isBatch ? <Boxes size={18} className="md:w-5 md:h-5" /> : item.name.charAt(0)}
                       </div>
                       <div className="overflow-hidden">
                         <p className="font-bold text-slate-800 text-xs md:text-sm flex items-center gap-2 truncate">
@@ -117,7 +121,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ ingredients, totalSales })
             <p className="text-[8px] md:text-[10px] text-slate-500 font-bold text-center uppercase tracking-widest">ChefStock Pro System</p>
           </div>
           <div className="absolute -bottom-6 md:-bottom-10 -right-6 md:-right-10 opacity-10">
-            <ShoppingCart size={120} md:size={180} />
+            {/* Fixed: Removed md:size and used className for responsive sizing */}
+            <ShoppingCart size={120} className="md:w-[180px] md:h-[180px]" />
           </div>
         </div>
       </div>
