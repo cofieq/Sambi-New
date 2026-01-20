@@ -1,0 +1,5 @@
+{
+  "name": "ChefStock Pro - Smart Kitchen Inventory",
+  "description": "A high-end kitchen inventory management system that automatically deducts raw materials based on dish sales and recipe configurations.",
+  "requestFramePermissions": []
+}
