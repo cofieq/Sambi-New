@@ -1,5 +1,6 @@
 
 export type MovementType = 'RESTOCK' | 'DEDUCTION' | 'ADJUSTMENT' | 'INITIAL' | 'BATCH_PRODUCTION';
+export type IngredientType = 'RAW' | 'PREPARED';
 
 export interface StockHistory {
   id: string;
@@ -19,7 +20,7 @@ export interface Ingredient {
   quantity: number;
   unit: string;
   minThreshold: number;
-  isBatch?: boolean; // New flag to identify if this item is a batch
+  itemType: IngredientType; // RAW (Bahan Utama) or PREPARED (Hasil Batch)
 }
 
 export interface RecipeItem {
@@ -31,7 +32,7 @@ export interface BatchRecipe {
   id: string;
   targetIngredientId: string; // The ID of the Ingredient this batch produces
   recipe: RecipeItem[];
-  yieldAmount: number; // How much of the target ingredient is produced (e.g., 1000g of Sauce)
+  yieldAmount: number;
 }
 
 export interface MenuItem {

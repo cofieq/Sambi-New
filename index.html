@@ -14,44 +14,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2563eb;
+      --primary: #3b82f6;
       --secondary: #64748b;
+      --accent-glow: rgba(59, 130, 246, 0.15);
     }
     
     body { 
       font-family: 'Plus Jakarta Sans', sans-serif; 
       letter-spacing: -0.01em;
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-      overscroll-behavior-y: contain; /* Prevents browser pull-to-refresh in WebView */
+      overscroll-behavior-y: contain;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
+      background-color: #f8fafc;
     }
 
-    /* Hardware Acceleration for Android */
     .animate-entry {
-      animation: fadeInScale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       will-change: transform, opacity;
     }
 
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: translateY(10px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Custom Android-Style Scrollbar */
-    ::-webkit-scrollbar { width: 4px; height: 4px; }
-    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.2); border-radius: 10px; }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
     .card-shadow { 
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03); 
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.03); 
     }
 
-    /* Smooth rotation transition */
-    * { transition: background-color 0.2s ease, border-color 0.2s ease; }
+    .active-nav-glow {
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
 
-    /* Input focus fix for mobile */
-    input, select, textarea {
-      font-size: 16px !important; /* Prevents iOS/Android auto-zoom on focus */
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.15); border-radius: 10px; }
+
+    input:focus, select:focus, textarea:focus {
+      font-size: 16px !important;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 <script type="importmap">
